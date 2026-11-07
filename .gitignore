@@ -1,5 +1,26 @@
+# Dependencies
 node_modules/
-__pycache__/
+
+# Environment variables
+.env
+.env.*
+
+# Java
+*.class
+*.jar
+target/
+
+# Logs
 *.log
+
+# Build files
+dist/
+build/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
 .DS_Store
 Thumbs.db
