@@ -1,0 +1,80 @@
+{
+  "title": "Under the Moonlight",
+  "start": "campus-arrival",
+  "maxAffection": 30,
+  "romanceThreshold": 22,
+  "backgrounds": { "campus": "assets/backgrounds/campus.png", "garden": "assets/backgrounds/garden.png", "beach": "assets/backgrounds/beach.png" },
+  "characters": {
+    "gabriel": {
+      "name": "Gabriel", "detail": "YOUR CHILDHOOD BEST FRIEND",
+      "expressions": {
+        "smiling": "assets/characters/gabriel-smiling.png",
+        "happy": "assets/characters/gabriel-happy.png",
+        "embarrassed": "assets/characters/gabriel-embarrassed.png",
+        "serious": "assets/characters/gabriel-serious.png"
+      }
+    }
+  },
+  "chapters": [
+    { "id": 1, "title": "The University Crush", "location": "University campus · Late afternoon", "background": "campus", "scenes": 3 },
+    { "id": 2, "title": "A Walk Together", "location": "The university garden · Golden hour", "background": "garden", "scenes": 3 },
+    { "id": 3, "title": "Under the Moonlight", "location": "Our little beach · After sunset", "background": "beach", "scenes": 3 }
+  ],
+  "nodes": {
+    "campus-arrival": { "type": "narration", "chapter": 1, "scene": 1, "text": "The university campus was filled with students. You walked towards your classroom, hoping the day would go smoothly.", "next": "campus-petals" },
+    "campus-petals": { "type": "narration", "chapter": 1, "scene": 1, "text": "Cherry blossoms drifted across the path. Somewhere beyond the courtyard, someone was playing a familiar song.", "next": "familiar-face" },
+    "familiar-face": { "type": "narration", "chapter": 1, "scene": 2, "text": "Suddenly, you noticed a familiar face standing near the university entrance.", "next": "my-gubbi" },
+    "my-gubbi": { "type": "dialogue", "chapter": 1, "scene": 2, "speaker": "player", "text": "There’s my Gubbi...", "next": "gabriel-hello" },
+    "gabriel-hello": { "type": "dialogue", "chapter": 1, "scene": 3, "speaker": "gabriel", "expression": "smiling", "text": "Hey! Were you waiting for me?", "next": "campus-choice" },
+    "campus-choice": { "type": "choice", "chapter": 1, "scene": 3, "speaker": "gabriel", "expression": "smiling", "text": "That little smile. You’ve known it since you were kids. Somehow, it still catches you off guard.", "options": [
+      { "id": "obviously", "text": "Obviously! Who else would I wait for?", "affection": 10, "next": "campus-warm" },
+      { "id": "tease", "text": "Don’t flatter yourself!", "affection": 5, "next": "campus-tease" },
+      { "id": "chance", "text": "I just happened to be here.", "affection": 2, "next": "campus-chance" }
+    ] },
+    "campus-warm": { "type": "response", "chapter": 1, "scene": 3, "speaker": "gabriel", "expression": "embarrassed", "responseSlot": "campus.obviously", "text": "Well... good. Because I was hoping you would be, {playerName}.", "next": "campus-leave" },
+    "campus-tease": { "type": "response", "chapter": 1, "scene": 3, "speaker": "gabriel", "expression": "happy", "responseSlot": "campus.tease", "text": "There it is. That’s the {playerName} I know. I’d be worried if you stopped teasing me.", "next": "campus-leave" },
+    "campus-chance": { "type": "response", "chapter": 1, "scene": 3, "speaker": "gabriel", "expression": "smiling", "responseSlot": "campus.chance", "text": "Then I guess it’s my lucky day. I’m glad I happened to be here, too.", "next": "campus-leave" },
+    "campus-leave": { "type": "narration", "chapter": 1, "scene": 3, "character": "gabriel", "expression": "smiling", "text": "He falls into step beside you, close enough that your sleeves brush. Neither of you moves away.", "next": "garden-invite" },
+
+    "garden-invite": { "type": "dialogue", "chapter": 2, "scene": 1, "speaker": "gabriel", "expression": "smiling", "text": "Come on, let’s take a walk. I have something to tell you.", "next": "garden-question" },
+    "garden-question": { "type": "dialogue", "chapter": 2, "scene": 1, "speaker": "player", "character": "gabriel", "expression": "smiling", "text": "What is it?", "next": "garden-bench" },
+    "garden-bench": { "type": "dialogue", "chapter": 2, "scene": 2, "speaker": "gabriel", "expression": "serious", "text": "Do you remember that summer we tried to build a boat? You said we’d sail somewhere no one could find us.", "next": "garden-choice" },
+    "garden-choice": { "type": "choice", "chapter": 2, "scene": 2, "speaker": "player", "character": "gabriel", "expression": "serious", "text": "You remember the crooked little boat, the sea, and a promise made with sandy hands.", "options": [
+      { "id": "together", "text": "I’d still go anywhere with you.", "affection": 10, "next": "garden-together" },
+      { "id": "boat", "text": "Only if you build a better boat this time.", "affection": 5, "next": "garden-laugh" },
+      { "id": "children", "text": "We were just kids, Gubbi.", "affection": 2, "next": "garden-distance" }
+    ] },
+    "garden-together": { "type": "response", "chapter": 2, "scene": 2, "speaker": "gabriel", "expression": "embarrassed", "responseSlot": "garden.together", "text": "You can’t just say things like that and expect me to remember what I was going to tell you.", "next": "garden-memory" },
+    "garden-laugh": { "type": "response", "chapter": 2, "scene": 2, "speaker": "gabriel", "expression": "happy", "responseSlot": "garden.boat", "text": "Hey, it floated for almost seven seconds. That’s seven seconds of excellent craftsmanship.", "next": "garden-memory" },
+    "garden-distance": { "type": "response", "chapter": 2, "scene": 2, "speaker": "gabriel", "expression": "serious", "responseSlot": "garden.children", "text": "Yeah. We were. Funny how some things stay with you, though.", "next": "garden-memory" },
+    "garden-memory": { "type": "dialogue", "chapter": 2, "scene": 3, "speaker": "gabriel", "expression": "smiling", "text": "You were upset when it sank. So I sat beside you and played that terrible song on my little guitar. Over and over.", "next": "garden-song" },
+    "garden-song": { "type": "dialogue", "chapter": 2, "scene": 3, "speaker": "player", "character": "gabriel", "expression": "smiling", "text": "It wasn’t terrible. You just only knew three chords.", "next": "garden-promise" },
+    "garden-promise": { "type": "dialogue", "chapter": 2, "scene": 3, "speaker": "gabriel", "expression": "happy", "text": "Four now. I’ve been practicing. I never liked seeing you sad, you know.", "next": "garden-sunset" },
+    "garden-sunset": { "type": "narration", "chapter": 2, "scene": 3, "character": "gabriel", "expression": "smiling", "text": "The afternoon slips into evening. When he suggests visiting your old beach, you find yourself saying yes before he finishes asking.", "next": "beach-arrival" },
+
+    "beach-arrival": { "type": "narration", "chapter": 3, "scene": 1, "text": "The world is quieter here. Moonlight gathers on the water, turning each small wave to silver.", "next": "beach-beautiful" },
+    "beach-beautiful": { "type": "dialogue", "chapter": 3, "scene": 1, "speaker": "gabriel", "expression": "smiling", "text": "It’s beautiful tonight, isn’t it?", "next": "beach-player" },
+    "beach-player": { "type": "dialogue", "chapter": 3, "scene": 1, "speaker": "player", "character": "gabriel", "expression": "smiling", "text": "It really is.", "next": "beach-confession" },
+    "beach-confession": { "type": "dialogue", "chapter": 3, "scene": 2, "speaker": "gabriel", "expression": "serious", "text": "You know... I think I’ve been wanting to tell you something for a long time.", "next": "beach-nerves" },
+    "beach-nerves": { "type": "narration", "chapter": 3, "scene": 2, "character": "gabriel", "expression": "embarrassed", "text": "He looks down at the space between your hands. For once, your always-confident Gubbi seems lost for words.", "next": "beach-choice" },
+    "beach-choice": { "type": "choice", "chapter": 3, "scene": 2, "speaker": "player", "character": "gabriel", "expression": "embarrassed", "text": "The waves fill the silence. This time, you decide how to meet him in it.", "options": [
+      { "id": "hand", "text": "Take his hand. “I’m listening, Gubbi.”", "affection": 10, "next": "beach-hand" },
+      { "id": "time", "text": "“Take your time. I’m right here.”", "affection": 5, "next": "beach-time" },
+      { "id": "friend", "text": "“You’ll always be my best friend.”", "affection": 2, "next": "beach-friend" }
+    ] },
+    "beach-hand": { "type": "response", "chapter": 3, "scene": 3, "speaker": "gabriel", "expression": "embarrassed", "responseSlot": "beach.hand", "text": "Your hand is warm. Sorry. That’s not what I was going to say. You’re making this very difficult, {playerName}.", "next": "ending-branch" },
+    "beach-time": { "type": "response", "chapter": 3, "scene": 3, "speaker": "gabriel", "expression": "smiling", "responseSlot": "beach.time", "text": "You always know how to make the world a little less frightening. Thank you for that.", "next": "ending-branch" },
+    "beach-friend": { "type": "response", "chapter": 3, "scene": 3, "speaker": "gabriel", "expression": "serious", "responseSlot": "beach.friend", "text": "Always. Whatever comes next, I want you to know that part doesn’t change.", "next": "ending-branch" },
+    "ending-branch": { "type": "condition", "chapter": 3, "scene": 3, "atLeast": 22, "then": "romantic-confession", "otherwise": "bittersweet-confession" },
+    "romantic-confession": { "type": "dialogue", "chapter": 3, "scene": 3, "speaker": "gabriel", "expression": "serious", "text": "I love you, {playerName}. Not just because we grew up together. Because every day, I keep choosing you.", "next": "romantic-answer" },
+    "romantic-answer": { "type": "dialogue", "chapter": 3, "scene": 3, "speaker": "player", "character": "gabriel", "expression": "embarrassed", "text": "Then keep choosing me. I think my heart’s been doing the same thing.", "next": "romantic-promise" },
+    "romantic-promise": { "type": "dialogue", "chapter": 3, "scene": 3, "speaker": "gabriel", "expression": "happy", "text": "Okay. But just so you know... I’m still building you that boat.", "next": "romantic-close" },
+    "romantic-close": { "type": "narration", "chapter": 3, "scene": 3, "character": "gabriel", "expression": "smiling", "text": "His fingers find yours. The ocean stretches ahead, wide and unknown. For the first time, the promise feels like a beginning.", "next": "romantic-ending" },
+    "romantic-ending": { "type": "ending", "chapter": 3, "scene": 3, "ending": "romantic", "kicker": "ENDING 01 · A HEART FINDS ITS HOME", "title": "It was always you.", "text": "Some love stories begin with a stranger. Yours began with a childhood promise, and a hand you never wanted to let go." },
+    "bittersweet-confession": { "type": "dialogue", "chapter": 3, "scene": 3, "speaker": "gabriel", "expression": "serious", "text": "I think a part of me has loved you for a long time. You don’t have to say it back. I just wanted to be honest, for once.", "next": "bittersweet-answer" },
+    "bittersweet-answer": { "type": "dialogue", "chapter": 3, "scene": 3, "speaker": "player", "character": "gabriel", "expression": "serious", "text": "Gubbi... I care about you so much. I’m just not sure my heart is in the same place yet.", "next": "bittersweet-promise" },
+    "bittersweet-promise": { "type": "dialogue", "chapter": 3, "scene": 3, "speaker": "gabriel", "expression": "smiling", "text": "Then we don’t have to rush it. You’re still my favorite person to watch the sea with.", "next": "bittersweet-close" },
+    "bittersweet-close": { "type": "narration", "chapter": 3, "scene": 3, "character": "gabriel", "expression": "smiling", "text": "You sit beside him until the tide comes in. Some things have changed. Some things, you hope, never will.", "next": "bittersweet-ending" },
+    "bittersweet-ending": { "type": "ending", "chapter": 3, "scene": 3, "ending": "bittersweet", "kicker": "ENDING 02 · A PROMISE STILL KEPT", "title": "Beneath the same moon.", "text": "Not every feeling finds its answer tonight. But there is still a place beside him, and a little light on the water." }
+  }
+}

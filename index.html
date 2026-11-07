@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#141226">
+  <meta name="description" content="A familiar face. An unexpected feeling. A little courage under the moonlight. An illustrated, playable love story.">
+  <title>Under the Moonlight — An illustrated love story</title>
+  <link rel="icon" href="assets/moon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <main id="app" class="app">
+    <div class="scene-background background-current" id="background-current"></div>
+    <div class="scene-background background-next" id="background-next"></div>
+    <div class="scene-vignette"></div>
+    <div class="stars" aria-hidden="true"></div>
+    <div class="grain" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <a href="#" id="brand" class="brand" aria-label="Under the Moonlight title screen"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M24.8 21.6A12.4 12.4 0 0 1 10.4 7.2a11 11 0 1 0 14.4 14.4Z"/><path d="m23 4 1 3 3 1-3 1-1 3-1-3-3-1 3-1Z"/></svg><span>MOONLIGHT <small>STORIES</small></span></a>
+      <div id="chapter-header" class="chapter-header" hidden><span id="chapter-number"></span><span class="header-divider"></span><span id="chapter-name"></span></div>
+      <div class="toolbar">
+        <button id="sound-button" class="icon-button" title="Turn ambient music on" aria-label="Turn ambient music on" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m11 5-6 4H2v6h3l6 4V5Z"/><path class="sound-wave" d="M15 8c2 2 2 6 0 8m3-11c4 4 4 10 0 14"/><path class="sound-off" d="m16 9 6 6m0-6-6 6"/></svg></button>
+        <button id="settings-button" class="icon-button" title="Settings" aria-label="Settings"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="m10 2-1 3-3 1-3-1-2 4 2 3-1 3 3 3 3-1 3 1 1 3h4l1-3 3-1 2-3-1-3 1-3-3-3-3 1-1-3Z" transform="translate(1 0) scale(.92)"/></svg></button>
+        <button id="fullscreen-button" class="icon-button" title="Fullscreen" aria-label="Enter fullscreen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></svg></button>
+      </div>
+    </header>
+
+    <section id="title-screen" class="title-screen" aria-labelledby="story-title">
+      <div class="title-copy">
+        <p class="eyebrow"><span></span> AN ILLUSTRATED LOVE STORY</p>
+        <h1 id="story-title">Under the<br><em>Moonlight</em><span class="title-star" aria-hidden="true">✧</span></h1>
+        <p class="title-tagline">Some hearts have been home all along.</p>
+        <p class="title-description">A familiar face. An unexpected feeling.<br>And a story that begins with you.</p>
+        <div class="title-actions"><button id="start-button" class="primary-button">Start Story <span aria-hidden="true">↗</span></button><button id="continue-button" class="secondary-button" hidden>Continue <span aria-hidden="true">→</span></button></div>
+        <p id="save-description" class="save-description"></p>
+      </div>
+      <aside class="chapter-preview" aria-label="Your journey"><p class="eyebrow">A LITTLE CLOSER, EVERY CHAPTER</p><ol><li><span>01</span><div>The University Crush<small>A familiar beginning</small></div></li><li><span>02</span><div>A Walk Together<small>Things left unsaid</small></div></li><li><span>03</span><div>Under the Moonlight<small>A moment of courage</small></div></li></ol><span class="chapter-preview-line"></span></aside>
+      <div class="title-footer"><span>THREE CHAPTERS <i>✦</i> TWO ENDINGS <i>✦</i> YOUR STORY</span><span class="headphone-note">♫ &nbsp; Best enjoyed with headphones</span></div>
+    </section>
+
+    <section id="game-screen" class="game-screen" aria-label="Visual novel" hidden>
+      <div class="chapter-progress" id="chapter-progress" aria-label="Chapter progress"><i></i><i></i><i></i></div>
+      <div class="relationship" id="relationship" title="Your connection with Gabriel"><span aria-hidden="true">♡</span><div><small>YOU & GABRIEL</small><span id="relationship-label">A familiar warmth</span></div><div class="affection-track"><i id="affection-fill"></i></div></div>
+      <div class="character-wrap" id="character-wrap" hidden><img id="character" class="character" alt="Gabriel" draggable="false"><div class="character-fallback" id="character-fallback" hidden><span>G</span><small>Gabriel</small></div></div>
+      <div class="scene-caption" id="scene-caption"></div>
+      <div class="choices" id="choices" role="group" aria-label="Choose your response" hidden></div>
+      <div class="dialogue-shell" id="dialogue-shell">
+        <div class="nameplate"><span id="speaker-name">YOUR STORY</span><span class="nameplate-line"></span><small id="speaker-detail">A MOMENT TO REMEMBER</small></div>
+        <button id="dialogue-next" class="dialogue-next" aria-label="Continue story"><span id="dialogue-text" class="dialogue-text"></span><span class="advance-hint" id="advance-hint">CLICK TO CONTINUE <span aria-hidden="true">◇</span></span></button>
+        <div class="dialogue-footer"><span id="scene-count"></span><div><button id="history-button">Story log</button><span>·</span><button id="save-button">Save</button><span>·</span><button id="restart-button">Restart</button></div></div>
+      </div>
+      <div id="ending-card" class="ending-card" hidden><p class="eyebrow" id="ending-kicker"></p><h2 id="ending-title"></h2><p id="ending-description"></p><button id="play-again-button" class="primary-button">Begin again <span aria-hidden="true">↗</span></button><button id="ending-title-button" class="text-button">Back to title</button></div>
+    </section>
+    <div id="toast" class="toast" role="status"></div>
+    <div id="load-error" class="load-error" hidden><h2>The story couldn’t open.</h2><p>Please serve this folder with a local HTTP server and reload.</p><button class="primary-button" onclick="location.reload()">Try again</button></div>
+  </main>
+  <dialog id="name-dialog" class="modal"><form id="name-form"><button type="button" class="modal-close" data-close aria-label="Close">×</button><p class="eyebrow">EVERY STORY STARTS SOMEWHERE</p><h2>What should he call you?</h2><p>To everyone else, he’s Gabriel.<br>To you, he’s always been Gubbi.</p><label for="player-name">YOUR NAME</label><input id="player-name" name="playerName" placeholder="Enter your name" maxlength="24" autocomplete="given-name" required><p class="field-note">A little piece of you, written into the story.</p><button class="primary-button" type="submit">Let’s begin <span aria-hidden="true">→</span></button></form></dialog>
+  <dialog id="settings-dialog" class="modal settings-modal"><button class="modal-close" data-close aria-label="Close settings">×</button><p class="eyebrow">MAKE YOURSELF AT HOME</p><h2>A quieter moment</h2><label for="text-speed">TEXT SPEED <span id="speed-label">Gentle</span></label><input id="text-speed" type="range" min="0" max="60" step="10" value="30"><div class="setting-row"><div><strong>Ambient music</strong><small>A soft, original moonlight melody</small></div><input id="music-toggle" type="checkbox" aria-label="Ambient music"></div><div class="setting-row"><div><strong>Reduced motion</strong><small>Keep transitions still and simple</small></div><input id="motion-toggle" type="checkbox" aria-label="Reduced motion"></div><p class="settings-tip">Click or press Space to continue.<br>While text appears, click once to reveal it.</p><button id="return-title-button" class="secondary-button">Return to title <span aria-hidden="true">↗</span></button><p class="field-note">Your story saves automatically as you play.</p></dialog>
+  <dialog id="history-dialog" class="modal history-modal"><button class="modal-close" data-close aria-label="Close story log">×</button><p class="eyebrow">WORDS TO KEEP</p><h2>Our story, so far</h2><div id="history-content" class="history-content"></div></dialog>
+  <dialog id="restart-dialog" class="modal"><p class="eyebrow">A NEW BEGINNING</p><h2>Turn back to page one?</h2><p>Your current progress will be replaced when the new story begins.</p><div class="confirm-actions"><button id="confirm-restart" class="primary-button">Start again <span aria-hidden="true">↗</span></button><button class="secondary-button" data-close>Keep this moment</button></div></dialog>
+  <noscript>This illustrated story needs JavaScript. Please enable it to play.</noscript>
+</body>
+</html>
